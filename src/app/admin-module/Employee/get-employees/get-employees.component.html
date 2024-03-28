@@ -1,0 +1,37 @@
+<div class="d-flex flex-column p-1">
+    <div class="d-flex flex-row p-2 ">
+        <input type="number" name="aadharNumber" [(ngModel)]="EmployeeId" id="aadharNumber" class="form-control" placeholder="Search Employee">
+        <button class="btn btn-outline-dark" (click)="SearchData(null)">Search</button>
+        <button class="btn btn-outline-dark" routerLink="/bank/Admin/addEmployee">Add</button>
+        
+    </div>
+    <div class="d-flex flex-row justify-content-center align-items-center p-2">
+        <table class="table table-striped shadow-lg">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>DateOfBirth</th>
+                    <th>PhoneNumber</th>
+                    <th>Email</th>
+                    <th>AadharNo</th>
+                    <th>Get Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of Employees" class="table-primary">
+                    <td>{{item.employeeId}}</td>
+                    <td>{{item.employeeFirstName}}</td>
+                    <td>{{item.employeeLastName}}</td>
+                    <td>{{item.employeeDateOfBirth | date}}</td>
+                    <td>{{item.employeeMobileNo}}</td>
+                    <td>{{item.employeeEmailId}}</td>
+                    <td>{{item.employeeAadharNo}}</td>
+                    <td><button class="btn btn-info btn-sm" (click)="SearchData(item.employeeId)">Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

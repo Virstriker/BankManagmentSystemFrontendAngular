@@ -1,0 +1,46 @@
+<form [formGroup]="employeeForm" class="p-5 bg-info shadow-lg">
+  <div class="form-group">
+    <label for="employeeFirstName">First Name</label>
+    <input type="text" class="form-control" formControlName="employeeFirstName" id="employeeFirstName" >
+    <div class="valid" *ngIf="val.employeeFirstName.errors?.['required'] && val.employeeFirstName.touched">FirstName is required</div>
+  </div>
+  <div class="form-group">
+    <label for="employeeLastName">Last Name</label>
+    <input type="text" class="form-control" id="employeeLastName" formControlName="employeeLastName">
+    <div class="valid" *ngIf="val.employeeLastName.touched && val.employeeLastName.errors?.['required']">LastName is required</div>
+  </div>
+  <div class="form-group">
+    <label for="employeeDateOfBirth">Date of Birth</label>
+    <input type="date" class="form-control" id="employeeDateOfBirth" formControlName="employeeDateOfBirth">
+  </div>
+  <div class="form-group">
+    <label for="employeeMobileNo">Mobile Number</label>
+    <input type="text" class="form-control" id="employeeMobileNo" formControlName="employeeMobileNo" >
+    <div class="valid" *ngIf="val.employeeMobileNo.touched && (val.employeeMobileNo.errors?.['minlength']  || val.employeeMobileNo.errors?.['required'] || val.employeeMobileNo.errors?.['maxlength'])">Invalid Number</div>
+  </div>
+  <div class="form-group">
+    <label for="employeeEmailId">Email ID</label>
+    <input type="email" class="form-control" id="employeeEmailId" formControlName="employeeEmailId">
+    <div class="valid" *ngIf="val.employeeEmailId.touched && (val.employeeEmailId.errors?.['required'])">Invalid Email</div>
+  </div>
+  <div class="form-group">
+    <label for="employeeAadharNo">Aadhar Number</label>
+    <input type="text" class="form-control" id="employeeAadharNo" formControlName="employeeAadharNo">
+    <div class="valid" *ngIf="val.employeeAadharNo.touched && (val.employeeAadharNo.errors?.['required'] || val.employeeAadharNo.errors?.['minlength'] || val.employeeAadharNo.errors?.['maxlength'])">Invalid Aadhar number</div>
+  </div>
+  <div class="form-group">
+    <label for="employeLoginId">Login ID</label>
+    <input type="text" class="form-control" id="employeLoginId" formControlName="employeLoginId">
+    <div class="valid"  *ngIf="val.employeLoginId.touched && (val.employeLoginId.errors?.['required'])">Login Id is required</div>
+  </div>
+  <div class="form-group">
+    <label for="employeeLoginPassword">Login Password</label>
+    <input type="password" class="form-control" id="employeeLoginPassword" formControlName="employeeLoginPassword">
+    <div class="valid"  *ngIf="val.employeeLoginPassword.touched && (val.employeeLoginPassword.errors?.['required'])">Password is required</div>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="employeeIsAdmin" formControlName="employeeIsAdmin">
+    <label class="form-check-label" for="employeeIsAdmin">Is Admin</label>
+  </div>
+  <button type="submit" (click)="onSubmit()" class="btn btn-primary" [disabled]="!employeeForm.valid">Submit</button>
+</form>

@@ -1,0 +1,77 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-column p-2">
+        <div class="d-flex flex-row">
+            <div class="d-felx flex-column p-1 m-2 fs-5  bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+            <table>
+                <tr>
+                    <td class="editable">FirstName</td>
+                    <td><input type="text" disabled formControlName="firstName" id="firstName"
+                        class="form-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="editable">LastName</td>
+                    <td><input type="text" disabled formControlName="lastName" id="lastName"
+                            class="form-control">
+                        </td>
+                </tr>
+                <tr>
+                    <td>Date Of Birth</td>
+                    <td><input type="text" formControlName="dateOfBirth" id="" [disabled]="true"
+                            class="form-control"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="d-felx flex-column p-3 m-2 fs-5 bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+            <table>
+                <tr>
+                    <td class="editable">Mobile No</td>
+                    <td><input disabled type="tel" formControlName="mobileNo" id="Mobile"
+                        class="form-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="editable">Email</td>
+                    <td><input disabled type="email" formControlName="emailId" id="email"
+                        class="form-control"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="editable">Aadhar No</td>
+                    <td><input type="tel" disabled formControlName="aadharNo" id="Aadhar"
+                        class="form-control">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="d-flex flex-column">
+    <div class="d-flex flex-row">
+        <div class="p-1 m-2 fs-5 d-flex flex-colum bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+            <table>
+                <thead>
+                    <th>Account : 1</th>
+                </thead>
+                <tbody>
+                    <tr>Account Number: number</tr>
+                    <tr>Balance: balance</tr>
+                    <tr>Account Type: </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-1 m-2 fs-5 d-flex flex-column bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+        <table>
+            <thead>
+                <th>Account : 2</th>
+            </thead>
+            <tbody>
+                <tr>Account Number: number</tr>
+                    <tr>Balance: balance</tr>
+                    <tr>Account Type: type</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,27 @@
+<div class="d-felx flex-column p-3">
+    <p class="text-center fs-3">Account : {{id}}</p>
+    <table class="table table-striped shadow-lg">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>FromAccount</th>
+                <th>ToAccount</th>
+                <th>Type</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Transactions" class="table-primary">
+                <td>{{item.transactionId}}</td>
+                <td>{{item.transactionDate}}</td>
+                <td *ngIf="!(item.transactionAccount == intId)">{{item.transactionAccount}}</td>
+                <td *ngIf="(item.transactionAccount == intId)"></td>
+                <td *ngIf="!(item.transactionToAccount == intId)">{{item.transactionToAccount}}</td>
+                <td *ngIf="(item.transactionToAccount == intId)"></td>
+                <td>{{item.transactionType}}</td>
+                <td>{{item.transactionAmount}}</td>
+            </tr>
+        </tbody>
+    </table>    
+<div>

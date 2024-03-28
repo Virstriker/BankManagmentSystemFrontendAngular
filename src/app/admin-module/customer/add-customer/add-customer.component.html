@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center align-items-center flex-column">
+    <div class="flex-row" style="width: 100%;">
+        <p class="fs-3 p-2 font-weight-bold text-center" style="font-weight: 900;">Add Bank Customer</p>
+        <hr style="width:100%;text-align:left;margin-left:0;border: 1px solid rgb(38, 0, 255);">
+    </div>
+    <form #myForm="ngForm" action="#" class="d-flex flex-column">
+        <div class="form-group flex-row d-flex">
+            <div class="flex-column p-3">
+                <p class="flex-row fs-6">FirstName : </p>
+                <input type="text" name="firstName" id="firstName" class="form-control" #firstname="ngModel"
+                    [(ngModel)]="PostData.firstName" required />
+                <div *ngIf="firstname.errors?.['required'] && firstname.touched"
+                    style="position: absolute; color: red;">FirstName is Required</div>
+            </div>
+            <div class="flex-column p-3 ">
+                <p class="flex-row fs-6">LastName :</p>
+                <input type="text" name="lasttName" id="lasttName" class="form-control " #lastname="ngModel"
+                    [(ngModel)]="PostData.lastName" required />
+                <div *ngIf="lastname.errors?.['required'] && lastname.touched" style="position: absolute; color: red;">
+                    LastName is Required</div>
+            </div>
+        </div>
+        <div class="form-group flex-row d-flex">
+            <div class="flex-column p-3">
+                <p class="flex-row fs-6">Date Of Birth :</p>
+                <input type="date" name="dob" id="dob" class="form-control" [(ngModel)]="PostData.dateOfBirth"
+                    required />
+            </div>
+            <div class="flex-column p-3 ">
+                <p class="flex-row fs-6">Mobiel Number :</p>
+                <input type="tel" name="phoneNumber" id="phoneNumber" class="form-control " #number1="ngModel"
+                    [(ngModel)]="PostData.mobileNo" minlength="10" maxlength="10" required />
+                <div *ngIf="(number1.errors?.['minlength'] && number1.touched)||(number1.errors?.['maxlength'] && number1.touched)||(number1.errors?.['required'] && number1.touched)" style="position: absolute; color: red;">Invalid
+                    Number</div>
+            </div>
+        </div>
+        <div class="form-group flex-row d-flex">
+            <div class="flex-column p-3">
+                <p class="flex-row fs-6">Email :</p>
+                <input type="email" name="email" id="email" class="form-control"
+                    pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" #email="ngModel"
+                    [(ngModel)]="PostData.emailId" required />
+                <div *ngIf="(email.errors?.['pattern'] && email.touched)||(email.errors?.['required'] && email.touched)" style="position: absolute; color: red;">Invalid
+                    Format</div>
+            </div>
+            <div class="flex-column p-3 ">
+                <p class="flex-row fs-6">Aadhar Number :</p>
+                <input type="tel" name="aadharNumber" id="aadharNumber" class="form-control " #aadhar="ngModel"
+                    [(ngModel)]="PostData.aadharNo" minlength="12" maxlength="12" required />
+                <div *ngIf="(aadhar.errors?.['minlength'] && aadhar.touched)||(aadhar.errors?.['required'] && aadhar.touched)||(aadhar.errors?.['maxlength'] && aadhar.touched)" style="position: absolute; color: red;">Invalid
+                    Aadhar Number</div>
+            </div>
+        </div>
+        <div class="form-group flex-row d-flex">
+            <div class="flex-column p-3">
+                <p class="flex-row fs-6">Balance :</p>
+                <input type="number" name="balance" id="balance" min="0" class="form-control"
+                    [(ngModel)]="PostData.balance" #balance="ngModel" required />
+                    <div *ngIf="(balance.errors?.['min'] && balance.touched)||(balance.errors?.['required'] && balance.touched)" style="position: absolute; color: red;">Enter Correct Amount</div>
+            </div>
+            <div class="flex-column p-3 ">
+                <p class="flex-row fs-6">Account Type :</p>
+                <select name="AccountType" id="AccountType" class="form-control" [(ngModel)]="PostData.accountType">
+                    <option selected disabled value="">Select Account Type</option>
+                    <option value="savings">Savings</option>
+                    <option value="current">Current</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary" (click)="OnAddCustomer()">ADD
+            CUSTOMER</button>
+    </form>
+</div>

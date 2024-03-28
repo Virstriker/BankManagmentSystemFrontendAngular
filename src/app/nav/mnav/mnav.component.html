@@ -1,0 +1,24 @@
+<div class="d-flex ">
+    <div class="d-flex flex-column flex-shrink-0 p-2 text-white  bg-primary bg-gradient text-center position-fixed"
+        style="width: 20%; height: 100vh;">
+        <p class="fs-2 bg-info bg-gradient shadow-lg">
+            BMS
+        </p>
+        <div class="d-flex flex-column align-items-start justify-content-center mx-3">
+            <a (click)="profile()" routerLink="/bank/Admin" class="fs-4  p-2 shadow-lg"><img src="../../../assets/Images/profile.png" alt=""> Profile</a>
+            <a (click)="employee()" *ngIf="isAdmin" routerLink="/bank/Admin/getEmployees" class="fs-4  p-2 shadow-lg"><img src="../../../assets/Images/employee.png" alt=""> Employees</a>
+            <a (click)="customer()" routerLink="/bank/Admin/getCustomer" class="fs-4  p-2 shadow-lg"><img src="../../../assets/Images/people.png" alt=""> Customers</a>
+            <a (click)="transaction()" routerLink="/bank/Admin/transaction" class="fs-4  p-2 shadow-lg"><img src="../../../assets/Images/transaction.png" alt=""> Transaction</a>
+            <a (click)="help()" routerLink="/bank/help" class="fs-5 shadow-lg p-2 text-center position-absolute bottom-0 start-50 translate-middle-x">Help</a>
+        </div>
+        </div>
+    <div class="flex-column" style="width:100%;" style="width:100%;">
+        <div class="d-flex flex-row bg-primary bg-gradient justify-content-end align-items-center" style="width:100%; height: 10vh;">
+            <p class="fs-3 text-center p-2 text-light m-2 mx-5">Bank Managment System - {{current}}</p>
+            <button class="btn btn-sm btn-danger mx-5" (click)="onLogOut()">Logout</button>
+        </div>
+        <div class="flex-row" style="margin-left: 20%;">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="d-flex flex-column p-5" style="height: 90vh;">
+    <div class="d-flex flex-row">
+        <input [(ngModel)]="Account" type="number" name="Account" id="Account" class="form-control fs-5" placeholder="Enter Account Number">
+        <button (click)="Transaction()" class="btn btn-primary">Transactions</button>
+    </div>
+    <div class="d-flex flex-column p-5 bg-primary bg-opacity-50 shadow-lg rounded mt-3  flex-column justify-content-center align-items-center" >
+        <p class="fs-2 text-center fw-bolder">Make Transaction</p>
+        <form #TransactionForm="ngForm" class="d-felx">
+            <table class="fs-4  bg-gradient bg-opacity-50 shadow-lg rounded mt-3 px-5">
+                <tbody>
+                    <tr>
+                        <td>Transaction Type&ensp;</td>
+                        <td><select [(ngModel)]="TransactionType" (ngModelChange)="onValueChange()" name="type" id="type" class="form-control">
+                            <option selected disabled value="Choose Transaction Type">Choose Transaction Type</option>
+                            <option value="Transfer">Transfer</option>
+                            <option value="Deposit">Deposit</option>
+                            <option value="Withdraw">Withdraw</option>
+                        </select></td>
+                    </tr>
+                    <tr *ngIf="IsTransfer">
+                        <td>From Account Number&ensp;</td>
+                        <td><input [(ngModel)]="InputModel.transactionAccount" type="number" name="from" id="from" class="form-control"></td>
+                    </tr>
+                    <tr *ngIf="ShowButton">
+                        <td>To Account Number&ensp;</td>
+                        <td><input [(ngModel)]="InputModel.transactionToAccount" type="number" name="to" id="to" class="form-control" required></td>
+                    </tr >
+                    <tr *ngIf="ShowButton">
+                        <td>Transaction Amount&ensp;</td>
+                        <td><input [(ngModel)]="InputModel.transactionAmount" min="1" type="number" oninput="validity.valid||(value>0)" name="amount" id="amount" class="form-control" required></td>
+                    </tr>
+                    <tr *ngIf="ShowButton">
+                        <td colspan="2"><button (click)="onAddTransaction()" [disabled]="!TransactionForm.valid"  type="submit" class="form-control btn btn-primary fs-4">Add Transaction</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

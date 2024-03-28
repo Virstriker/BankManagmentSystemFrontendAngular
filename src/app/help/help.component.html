@@ -1,0 +1,40 @@
+<header class="container py-3">
+    <h1 class="display-5 fw-bold">Bank Management Project Help</h1>
+  </header>
+
+  <main class="container py-4">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Key Features</h2>
+        <ul class="list-group">
+        <li class="list-group-item">Get Intrest <select [(ngModel)]="Type" (ngModelChange)="onChange()" name="intrest" id="intrest">
+            <option value="Select Type" selected disabled>Select type</option>
+            <option value="savings">Savings</option>
+            <option value="current">Current</option>
+        </select> : <span>{{Rate}}</span></li>
+          <li class="list-group-item">Manage customer accounts (create, view, update, delete)</li>
+          <li class="list-group-item">Process transactions (deposits, withdrawals, transfers)</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h2>Using the System</h2>
+        <ul class="list-group">
+          <li class="list-group-item">Navigate using menus or interface.</li>
+          <li class="list-group-item">Enter information accurately.</li>
+          <li class="list-group-item">Follow instructions and troubleshoot with error messages.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h2>Resources &amp; Reminders</h2>
+        <ul>
+          <li>Refer to project documentation for details.</li>
+          <li>Contact support for further assistance.</li>
+          <li>Maintain data security and back up regularly.</li>
+          <li>Use the system responsibly and ethically.</li>
+        </ul>
+      </div>
+    </div>
+  </main>

@@ -1,0 +1,27 @@
+a{
+    border-radius: 30px;
+    margin-top: 5px;
+    text-decoration: none;
+    text-align: start;
+    width: 230px;
+    color: white;
+    transition: all;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+a:hover{
+    color: black;
+    background-color: white;
+}
+a:hover > img {
+    filter: invert(0%);
+} 
+img{
+    filter: invert(100%);
+    width: 35px;
+    transition: all;
+    transition-duration: 0.5s;
+}
+.active{
+    background-color: aliceblue;
+}

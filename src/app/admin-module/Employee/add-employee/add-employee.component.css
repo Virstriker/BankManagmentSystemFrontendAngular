@@ -1,0 +1,18 @@
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-control {
+    height: calc(1.5em + 0.75rem + 2px);
+}
+
+.form-check-input {
+    height: calc(1.5em + 0.75rem + 2px);
+  }
+  input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+.valid{
+    position: relative;
+    color: red;
+}

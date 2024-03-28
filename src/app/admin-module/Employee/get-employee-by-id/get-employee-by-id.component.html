@@ -1,0 +1,70 @@
+<div *ngIf="!DataFound"
+    class="d-flex justify-content-center align-items-center flex-column bg-secondary bg-gradient bg-opacity-50 m-3 p-2">
+    <p class="fs-4">Employee Id: </p>
+    <form [formGroup]="Myform" class="d-flex flex-column form-group fs-5">
+        <div class="d-flex flex-row">
+            <div class="d-flex flex-row form-group">
+                <div class="d-felx flex-column p-1 m-2 fs-5  bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="editable">FirstName</td>
+                                <td><input type="text" [readOnly]="Read" formControlName="employeeFirstName" id="firstName" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="editable">LastName</td>
+                                <td><input type="text" [readOnly]="Read" formControlName="employeeLastName" id="lastName" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Date Of Birth</td>
+                                <td><input type="text" formControlName="employeeDateOfBirth" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td class="editable">Mobile No</td>
+                                <td><input type="tel" [readOnly]="Read" formControlName="employeeMobileNo" id="Mobile" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="editable">Email</td>
+                                <td><input type="email" [readOnly]="Read" formControlName="employeeEmailId" id="email" class="form-control" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-felx flex-column p-3 m-2 fs-5 bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+                    <table>
+                        <tbody>
+
+                            <tr>
+                                <td class="editable">Aadhar No</td>
+                                <td><input type="tel"  [readOnly]="Read" formControlName="employeeAadharNo" id="Aadhar" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Login Id</td>
+                                <td><input type="text"  [readOnly]="Read" formControlName="employeLoginId" id="acc" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td><input type="text" [readOnly]="Read" formControlName="employeeLoginPassword" id="bal" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Admin</td>
+                                <td><input type="text" [readOnly]="Read" formControlName="employeeIsAdmin" id="atype" class="form-control"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary m-3" [hidden]="!isEdit" [disabled]="!Myform.valid" (click)="onUpdate()">Update Details</button>
+        <button class="btn btn-warning m-2" [hidden]="isEdit" (click)="OnEdit()">Edit</button>
+        <button class="btn btn-danger m-2" [hidden]="isEdit" (click)="OnDelete()">Delete</button>
+    </form>
+</div>
+<div style="position: absolute; top:48%; left: 45%; font-size: xx-large;"  *ngIf="DataFound">
+    No Data Found
+</div>

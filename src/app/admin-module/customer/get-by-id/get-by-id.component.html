@@ -1,0 +1,106 @@
+<div *ngIf="Load">
+    <div *ngIf="DataFound" style="display: flex;position: absolute; top: 50%;left: 45%;">
+        <h1>No Data Found</h1>
+    </div>
+    <div *ngIf="!DataFound"
+        class="d-flex justify-content-center align-items-center flex-column bg-secondary bg-gradient bg-opacity-50 m-3 p-2">
+
+        <form [formGroup]="Myform" class="d-flex flex-column p-2">
+            <p class="bg-primary p-2 fs-4 bg-opacity-50 rounded text-center">User Id : {{UserData[0].userId}}</p>
+            <div class="d-flex flex-row">
+                <div class="d-felx flex-column p-1 m-2 fs-5  bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+                    <table>
+                        <tr>
+                            <td class="editable">FirstName</td>
+                            <td><input type="text" [readOnly]="EditInfo" formControlName="firstName" id="firstName"
+                                    class="form-control" [disabled]="EditInfo">
+                                <li *ngIf="val.firstName.errors?.['required'] && val.firstName.touched"
+                                    class="position-absolute h6 text-danger">firstname is required</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="editable">LastName</td>
+                            <td><input type="text" [readOnly]="EditInfo" formControlName="lastName" id="lastName"
+                                    class="form-control" [disabled]="EditInfo">
+                                <li *ngIf="val.lastName.errors?.['required'] && val.lastName.touched"
+                                    class="position-absolute h6 text-danger">lastName is required</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date Of Birth</td>
+                            <td><input type="text" formControlName="dateOfBirth" id="" [disabled]="true"
+                                    class="form-control"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="d-felx flex-column p-3 m-2 fs-5 bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+                    <table>
+                        <tr>
+                            <td class="editable">Mobile No</td>
+                            <td><input [readOnly]="EditInfo" type="tel" formControlName="mobileNo" id="Mobile"
+                                    class="form-control" [disabled]="EditInfo">
+                                <li *ngIf="(val.mobileNo.errors?.['required'] && val.mobileNo.touched)||(val.mobileNo.errors?.['minlength'] && val.mobileNo.touched)||(val.mobileNo.errors?.['maxlength'] && val.mobileNo.touched)"
+                                    class="position-absolute h6 text-danger">Enter valid number</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="editable">Email</td>
+                            <td><input [readOnly]="EditInfo" type="email" formControlName="emailId" id="email"
+                                    class="form-control" [disabled]="EditInfo" />
+                                <li *ngIf="(val.emailId.errors?.['email'] && val.emailId.touched)||(val.emailId.errors?.['required'] && val.emailId.touched)"
+                                    class="position-absolute h6 text-danger">Enter valid email</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="editable">Aadhar No</td>
+                            <td><input type="tel" [readOnly]="EditInfo" formControlName="aadharNo" id="Aadhar"
+                                    class="form-control">
+                                <li *ngIf="(val.aadharNo.errors?.['required'] && val.aadharNo.touched)||(val.aadharNo.errors?.['minlength'] && val.aadharNo.touched)||(val.aadharNo.errors?.['maxlength'] && val.aadharNo.touched)"
+                                    class="position-absolute h6 text-danger">Enter valid aadhar number</li>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <button (click)="OnUpdate()" [disabled]="!Myform.valid" *ngIf="!EditBtn"
+                class="form-control btn btn-primary m-auto" style="width: 400px;" (click)="OnUpdate()">Update</button>
+        </form>
+        <div *ngIf="EditBtn" class="d-flex flex-column">
+            <button *ngIf="EditBtn" class="btn btn-warning m-1" (click)="OnEdit()">Edit</button>
+            <button (click)="DeleteUser()" *ngIf="EditBtn" class="btn btn-danger m-1">Delete</button>
+            <div class="d-flex flex-row">
+                <div class="p-1 m-2 fs-5 d-flex flex-colum bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+                    <table>
+                        <thead>
+                            <th>Account : 1</th>
+                        </thead>
+                        <tbody>
+                            <tr>Account Number: {{UserData[0].accountNumber}}</tr>
+                            <tr>Balance: {{UserData[0].balance}}</tr>
+                            <tr>Account Type: {{UserData[0].accountType}}</tr>
+                        </tbody>
+                        <button class="btn btn-danger">Delete</button>
+                    </table>
+                </div>
+                <div *ngIf="UserData[1]!=null"
+                class="p-1 m-2 fs-5 d-flex flex-column bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+                <table>
+                    <thead>
+                        <th>Account : 2</th>
+                    </thead>
+                    <tbody>
+                        <tr>Account Number: {{UserData[1].accountNumber}}</tr>
+                            <tr>Balance: {{UserData[1].balance}}</tr>
+                            <tr>Account Type: {{UserData[1].accountType}}</tr>
+                        </tbody>
+                        <button (click)="DeleteUserAccount(UserData[1].accountNumber)" class="btn btn-danger">Delete</button>
+                    </table>
+                </div>
+            </div>
+            <button (click)="OnAdd()" class="btn btn-danger m-1">New Account</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="!Load" style="position: absolute; top: 49%; left: 48%;">
+    <p class="fs-1">Loading Data</p>
+</div>

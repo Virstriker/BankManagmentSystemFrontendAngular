@@ -1,0 +1,20 @@
+<div class="container p-3 bg-info">
+    <form action="#" #DeleteForm="ngForm" class="d-flex flex-column">
+        <p class="fs-5 text-danger">Add New Account</p>
+        <div class="form-group p-2 shadow-lg bg-primary bg-opacity-50 d-flex flex-column m-3">
+            <div class="p-1 d-felx flex-row">
+                <p>Balance :</p>
+                <input type="number" name="balance" id="balance" class="form-control" [(ngModel)]="NewAccoutn.balance" required>
+            </div>
+            <div class="p-1 d-felx flex-row">
+                <p>AccountType :</p>
+                <select name="AccountType" id="AccountType" class="form-control" [(ngModel)]="NewAccoutn.accountType">
+                    <option selected disabled value="Select Account Type">Select Account Type</option>
+                    <option value="savings">Savings</option>
+                    <option value="current">Current</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-danger" type="submit" (click)="onCancel()">Add Account</button>
+    </form>
+</div>

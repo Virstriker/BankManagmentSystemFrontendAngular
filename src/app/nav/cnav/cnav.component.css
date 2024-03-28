@@ -1,0 +1,11 @@
+a{
+    text-decoration: none;
+    color: white;
+    transition: all;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+a:hover{
+    color: black;
+    background-color: white;
+}

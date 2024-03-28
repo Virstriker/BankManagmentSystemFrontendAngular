@@ -1,0 +1,48 @@
+<div class="d-flex flex-column form-group fs-5 justify-content-center align-items-center" style="height: 90vh;">
+    <div class="d-flex flex-row">
+        <div class="d-flex flex-row form-group">
+            <div class="d-felx flex-column p-1 m-2 fs-5  bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="editable">FirstName</td>
+                            <td><input type="text" [readOnly]="true" id="firstName" [(ngModel)]="Profile.employeeFirstName" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="editable">LastName</td>
+                            <td><input type="text" [readOnly]="true" id="lastName" [(ngModel)]="Profile.employeeLastName" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date Of Birth</td>
+                            <td><input type="text" [readOnly]="true" [(ngModel)]="Profile.employeeDateOfBirth" class="form-control"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-felx flex-column p-3 m-2 fs-5 bg-success bg-gradient bg-opacity-50 shadow-lg rounded">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="editable">Mobile No</td>
+                            <td><input type="number" [readOnly]="true"  id="Mobile" [(ngModel)]="Profile.employeeMobileNo" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="editable">Email</td>
+                            <td><input type="email" [readOnly]="true" id="email" [(ngModel)]="Profile.employeeEmailId" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="editable">Aadhar No</td>
+                            <td><input type="number" [readOnly]="true"  id="Aadhar" [(ngModel)]="Profile.employeeAadharNo" class="form-control">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

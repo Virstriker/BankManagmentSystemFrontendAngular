@@ -1,0 +1,34 @@
+
+<div class="container p-4 d-flex flex-column">
+    <div class="container">
+        <p (click)="OnCheck()">Filter : DeActive Accounts:<input type="checkbox" name="checkbox" id="checkbox" [(ngModel)]="isChecked"></p>
+        
+    </div>
+    <table class="table table-striped shadow-lg">
+        <thead>
+            <th>Account Number</th>
+            <th>Account User</th>
+            <th>Balance</th>
+            <th>Account Type</th>
+            <th>Active</th>
+        </thead>
+        <tbody *ngIf="!isChecked">
+            <tr *ngFor="let item of Accounts">
+                <td>{{item.accountNumber}}</td>
+                <td>{{item.accountUser}}</td>
+                <td>{{item.balance}}</td>
+                <td>{{item.accountType}}</td>
+                <td>{{item.active}}</td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="isChecked">
+            <tr *ngFor="let item of DeActiveAccounts">
+                <td>{{item.accountNumber}}</td>
+                <td>{{item.accountUser}}</td>
+                <td>{{item.balance}}</td>
+                <td>{{item.accountType}}</td>
+                <td>{{item.active}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
